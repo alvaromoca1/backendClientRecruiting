@@ -7,4 +7,7 @@ module.exports = function (app) {
     app.route('/client')
         .get(clientService.AllClient)
         .post(clientService.CreateClient);
+    app.route('/client/average')
+        .get(clientService.ClientAverge)
+
 };

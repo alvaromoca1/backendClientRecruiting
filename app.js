@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routers = require('./src/api/routes');
+const cors = require('cors');
 const app = express();
 
 mongoose.Promise = global.Promise;
@@ -20,6 +21,7 @@ mongoose.connect(process.env.URL_MONGODB, {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 routers(app);
 
